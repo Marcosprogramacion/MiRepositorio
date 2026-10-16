@@ -49,7 +49,7 @@ def suma(binario1,binario2,lista_operando1,lista_operando2):
                 lista_acarreo.insert(i,"1")
                 lista_resultado.insert(i,"1")
     return lista_resultado
-
+    #La suma no esta bien hecha
 def main():
     """Ejecuta la tarea principal del programa."""
     #Salida
