@@ -19,35 +19,25 @@ def formato_lista(lista_operando1,lista_operando2):
     if len(lista_operando1) > 8 or len(lista_operando2) > 8:
         return mensaje_formato_incorrecto
     
-def suma(lista_operando1,lista_operando2,lista_acarreo):
-    for i in range(len(lista_operando1[::-1])) and range(len(lista_operando2[::-1])) and range(len(lista_acarreo[::-1])):
-        if lista_operando1[i] == "0" and lista_operando2[i] == "0" and lista_acarreo[i + 1] == "0":
-            lista_resultado.insert(i,"0")
-        elif lista_operando1[i] == "1" and lista_operando2[i] == "0" and lista_acarreo[i + 1] == "0":
-            lista_resultado.insert(i,"1")
-        elif lista_operando1[i] == "0" and lista_operando2[i] == "1" and lista_acarreo[i + 1] == "0":
-            lista_resultado.insert(i,"1")
-        elif lista_operando1[i] == "1" and lista_operando2[i] == "1" and lista_acarreo[i + 1] == "0":
-            lista_acarreo[i + 1] = "1"
-            lista_resultado.insert(i,"0")
-        elif lista_operando1[i] == "0" and lista_operando2[i] == "0" and lista_acarreo[i + 1] == "1":
-            lista_resultado.insert(i,"1")
-        elif lista_operando1[i] == "1" and lista_operando2[i] == "0" and lista_acarreo[i + 1] == "1":
-            lista_acarreo[i + 1] = "1"
-            lista_resultado.insert(i,"0")
-        elif lista_operando1[i] == "0" and lista_operando2[i] == "1" and lista_acarreo[i + 1] == "1":
-            lista_acarreo[i + 1] = "1"
-            lista_resultado.insert(i,"0")
-        else:
-            lista_acarreo[i + 1] = "1"
-            lista_resultado.insert(i,"1") 
-    return lista_resultado
-    #La suma no esta bien hecha (creo que el problema está en la identacion de los ifs),(la lista no se recorre al revés y no se por que)
+def suma(lista_operando1,lista_operando2):
+    for i in range(len(lista_operando1))[::-1]:
+        if lista_operando1[i] == "0":
+            lista_operando1.insert(i,"0")
+        elif lista_operando1[i] == "1":
+            lista_operando1.insert(i,"1")  
+    
+    for i in range(len(lista_operando2))[::-1]:
+        if lista_operando2[i] == "0":
+            lista_operando2.insert(i,"0")
+        elif lista_operando2[i] == "1":
+            lista_operando2.insert(i,"1")
+
+    #La suma no esta bien hecha (Voy a hacer los for por separado)
 def main():
     """Ejecuta la tarea principal del programa."""
     #Salida
     if operacion == "+":
-        print(suma(lista_operando1,lista_operando2,lista_acarreo))
+        print(suma(lista_operando1,lista_operando2))
     else:
         return 
 
