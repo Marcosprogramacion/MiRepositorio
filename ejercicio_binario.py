@@ -18,7 +18,17 @@ lista_operando2.extend(binario2)
 def formato_lista(lista_operando1,lista_operando2):
     if len(lista_operando1) > 8 or len(lista_operando2) > 8:
         return mensaje_formato_incorrecto
-    
+
+while len(binario1) < 9:
+    binario1 = "0" + binario1
+lista_operando1.clear()
+lista_operando1.extend(binario1)             
+
+while len(binario2) < 9:
+    binario2 = "0" + binario2
+lista_operando2.clear()
+lista_operando2.extend(binario2)
+
 def suma(lista_operando1,lista_operando2,lista_acarreo):
     for i in range(10):
         if lista_operando1[i] == "0" and lista_operando2[i] == "0" and lista_acarreo[i] == "0":
