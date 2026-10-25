@@ -10,7 +10,7 @@ lista_resultado_resta:list = []
 binario1:str = input("Dime un numero binario de 8 bits: ")
 binario2:str = input("Dime otro numero binario de 8 bits: ")
 operacion:str = input("Dime si sumas (+) o si restas (-): ")
-numeros_posibles:str = "10"
+numeros_posibles:tuple = ("1","0")
 operaciones_posibles:str = "+-" 
 mensaje_formato_incorrecto:str = "Formato incorrecto"
 #Calculo
@@ -30,9 +30,11 @@ lista_operando2.extend(binario2)
 lista_operando2 = lista_operando2[::-1]
 
 def suma(lista_operando1,lista_operando2,lista_acarreo_suma):
-    if len(lista_operando1) > 8 or len(lista_operando2) > 8:
+    if len(lista_operando1) > 10 or len(lista_operando2) > 10:
         return mensaje_formato_incorrecto
-    if numeros_posibles not in lista_operando1 or numeros_posibles not in lista_operando2:
+    if (numeros_posibles[0] not in lista_operando1) or (numeros_posibles[1] not in lista_operando1): 
+        return mensaje_formato_incorrecto
+    if (numeros_posibles[0] not in lista_operando2) or (numeros_posibles[1] not in lista_operando2):  
         return mensaje_formato_incorrecto
     for i in range(9):
         if lista_operando1[i] == "0" and lista_operando2[i] == "0" and lista_acarreo_suma[i] == "0":
@@ -59,7 +61,7 @@ def suma(lista_operando1,lista_operando2,lista_acarreo_suma):
     return lista_resultado_suma
 
 def resta(lista_operando1,lista_operando2,lista_acarreo_resta):
-    if len(lista_operando1) > 8 or len(lista_operando2) > 8:
+    if len(lista_operando1) > 10 or len(lista_operando2) > 10:
         return mensaje_formato_incorrecto
     if numeros_posibles not in lista_operando1 or numeros_posibles not in lista_operando2:
         return mensaje_formato_incorrecto
