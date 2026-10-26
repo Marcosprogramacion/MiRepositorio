@@ -17,17 +17,17 @@ mensaje_formato_incorrecto:str = "Formato incorrecto"
 lista_operando1.extend(binario1)
 lista_operando2.extend(binario2)
 
-while len(binario1) < 9:
+while len(binario1) < 9: #Rellena ceros a la izquierda en la lista del primer operando
     binario1 = "0" + binario1
 lista_operando1.clear()
 lista_operando1.extend(binario1)
-lista_operando1 = lista_operando1[::-1]             
+lista_operando1 = lista_operando1[::-1] #Hace que la lista se recorra al revés           
 
-while len(binario2) < 9:
+while len(binario2) < 9: #Rellena ceros a la izquierda en la lista del segundo operando
     binario2 = "0" + binario2
 lista_operando2.clear()
 lista_operando2.extend(binario2)
-lista_operando2 = lista_operando2[::-1]
+lista_operando2 = lista_operando2[::-1] #Hace que la lista se recorra al revés  
 
 def suma(lista_operando1:list,lista_operando2:list,lista_acarreo_suma:list) -> list:
     """Realiza una suma de dos numeros binarios tras comprobar si el formato es correcto
@@ -64,7 +64,7 @@ def suma(lista_operando1:list,lista_operando2:list,lista_acarreo_suma:list) -> l
         elif lista_operando1[i] == "1" and lista_operando2[i] == "1" and lista_acarreo_suma[i] == "1":
             lista_acarreo_suma[i + 1] = "1"
             lista_resultado_suma.insert(i,"1")
-    lista_resultado_suma.reverse()
+    lista_resultado_suma.reverse() #Invierte la lista para que se muestre correctamente
     return lista_resultado_suma
 
 def resta(lista_operando1:list,lista_operando2:list,lista_acarreo_resta:list) -> list:
@@ -98,7 +98,7 @@ def resta(lista_operando1:list,lista_operando2:list,lista_acarreo_resta:list) ->
         elif lista_operando1[i] == "1" and lista_operando2[i] == "1" and lista_acarreo_resta[i] == "1":
             lista_acarreo_resta[i + 1] = "1"
             lista_resultado_resta.insert(i,"1")
-    lista_resultado_resta.reverse()
+    lista_resultado_resta.reverse() #Invierte la lista para que se muestre correctamente
     return lista_resultado_resta
 
 #Salida
@@ -107,13 +107,24 @@ resta_binaria:list = resta(lista_operando1,lista_operando2,lista_acarreo_resta)
 def main():
     """Ejecuta la tarea principal del programa."""
     #Salida
+    lista_operando1.reverse()
+    lista_operando2.reverse()
     if operacion == "+":
-        print(suma_binaria)
+        print(lista_operando1)
+        print("+" , lista_operando2)
+        print("=" , suma_binaria)
     elif operacion == "-":
-        print(resta_binaria)
+        print(lista_operando1)
+        print("-" , lista_operando2)
+        print("=" , suma_binaria)
     else: #Asumo que si no se indica se refiere a que el usuario inserte cualquier otra cosa
-        print(suma_binaria)
-        print(resta_binaria)
+        print(lista_operando1)
+        print("+" , lista_operando2)
+        print("=" , suma_binaria)
+
+        print(lista_operando1)
+        print("-" , lista_operando2)
+        print("=" , suma_binaria)
 if __name__ == "__main__":
     # Solo se ejecuta al lanzar directamente este archivo.
     main()
