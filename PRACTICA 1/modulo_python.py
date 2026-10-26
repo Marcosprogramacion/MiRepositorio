@@ -29,7 +29,14 @@ lista_operando2.clear()
 lista_operando2.extend(binario2)
 lista_operando2 = lista_operando2[::-1]
 
-def suma(lista_operando1,lista_operando2,lista_acarreo_suma):
+def suma(lista_operando1:list,lista_operando2:list,lista_acarreo_suma:list) -> list:
+    """Realiza una suma de dos numeros binarios tras comprobar si el formato es correcto
+    
+    :param list lista_operando1: lista en donde se introduce el primer operando
+    :param list lista_operando2: lista en donde se introduce el segundo operando
+    :param list lista_acarreo_suma: lista en donde se van metiendo los acarreos
+    :return list lista_resultado_suma: lista en donde se introduce el numero sumado
+    """
     if len(lista_operando1) > 10 or len(lista_operando2) > 10:
         return mensaje_formato_incorrecto
     if (numeros_posibles[0] not in lista_operando1) or (numeros_posibles[1] not in lista_operando1): 
@@ -60,7 +67,14 @@ def suma(lista_operando1,lista_operando2,lista_acarreo_suma):
     lista_resultado_suma.reverse()
     return lista_resultado_suma
 
-def resta(lista_operando1,lista_operando2,lista_acarreo_resta):
+def resta(lista_operando1:list,lista_operando2:list,lista_acarreo_resta:list) -> list:
+    """Realiza una resta de dos numeros binarios tras comprobar si el formato es correcto
+       
+    :param list lista_operando1: lista en donde se introduce el primer operando
+    :param list lista_operando2: lista en donde se introduce el segundo operando
+    :param list lista_acarreo_resta: lista en donde se van metiendo los acarreos
+    :return list lista_resultado_resta: lista en donde se introduce el numero sumado
+    """
     if len(lista_operando1) > 10 or len(lista_operando2) > 10:
         return mensaje_formato_incorrecto
     if numeros_posibles not in lista_operando1 or numeros_posibles not in lista_operando2:
