@@ -1,16 +1,16 @@
 """Modulo que lee un numero binario y comprueba si se lee igual de izquierda a derecha que de derecha a izquierda."""
 # Marcos Martin Reinon fecha: 03/11/2022
-import sys
+def validacion(numero:str) -> bool:
+    casos_posibles:str = "10"
+    for n in numero:
+        if n not in casos_posibles:
+            return False
 
 def palindromo(numero:str) -> str:
     lista_derecho:list = []
     lista_reves:list = []
-    casos_posibles:str = "10"
-    #Cálculo
-    for n in numero:
-        if n not in casos_posibles:
-            return "formato incorrecto"
-        
+    
+    #Calculo
     for i in numero:
         lista_derecho.extend(i)
     for k in numero[::-1]:
@@ -33,8 +33,11 @@ def main():
     numero = sys.argv[1]
 
     #Salida
-    resultado = palindromo(numero)
-    print(resultado, file=sys.stderr)
+    if validacion(numero) == False:
+        return "Formato incorrecto"
+    else:
+        resultado = palindromo(numero)
+        print(resultado, file=sys.stderr)
 
 if __name__ == "__main__":
     """Ejecuta programa"""
