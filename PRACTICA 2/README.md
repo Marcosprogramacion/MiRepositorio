@@ -29,5 +29,3 @@ python palindromo.py 123
 python palindromo.py
 # Salida (por stderr): número de argumentos no válido
 ```
-
-#P.D.: He decidido dejar la prueba que yo hice al principio y el json para los debugueos porque quiero que veas como pienso de primeras y otras maneras de hacerlo.
