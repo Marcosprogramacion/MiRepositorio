@@ -1,27 +1,20 @@
-"""Modulo que lee un numero binario y comprueba si se lee igual de izquierda a derecha que de derecha a izquierda."""
-# Marcos Martin Reinon fecha: 03/11/2022
-import sys
-
 def palindromo(numero:str) -> str:
-    lista_derecho:list = []
-    lista_reves:list = []
+    
     casos_posibles:str = "10"
     #Cálculo
     for n in numero:
         if n not in casos_posibles:
             return "formato incorrecto"
+    izquierda:int = 0
+    derecha:int = len(numero) - 1
+    while izquierda < derecha:
+        if numero[izquierda] == numero[derecha]:
+            izquierda += 1
+            derecha -= 1
+        else:
+            return "No es un palindromo"
+    return "Es un palindromo"
         
-    for i in numero:
-        lista_derecho.extend(i)
-    for k in numero[::-1]:
-        lista_reves.extend(k)
-    if lista_derecho == lista_reves:
-        return "Es un palindromo"
-    else:
-        return "No es un palindromo"
-        
-            
-
 import sys
 
 def main():
@@ -29,7 +22,10 @@ def main():
         print("número de argumentos no válido", file=sys.stderr)
         return
 
+    #Entrada
     numero = sys.argv[1]
+
+    #Salida
     resultado = palindromo(numero)
     print(resultado, file=sys.stderr)
 
