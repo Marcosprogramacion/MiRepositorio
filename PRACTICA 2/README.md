@@ -1,3 +1,7 @@
+# Nombre, Apellidos y fecha
+
+Marcos Martin Reinon, 05/11/2026
+
 # Práctica 2 - Palíndromo binario
 
 El alumnado programará en Python un script que recibe una cadena binaria por la terminal e indica si es un palíndromo.
