@@ -2,30 +2,36 @@
 # Marcos Martin Reinon fecha: 03/11/2022
 import sys
 
-def palindromo(numero:int,lista_numero:list) -> str:
-
-    lista_numero = lista_numero.extend(numero)
+def palindromo(numero:str) -> str:
+    lista_derecho:list = []
+    lista_reves:list = []
+    casos_posibles:str = "10"
     #Cálculo
-    if 1 not in numero or 0 not in numero:
-        return "Formato incorrecto"
+    for n in numero:
+        if n not in casos_posibles:
+            return "formato incorrecto"
+        
+    for i in numero:
+        lista_derecho.extend(i)
+    for k in numero[::-1]:
+        lista_reves.extend(k)
+    if lista_derecho == lista_reves:
+        return "Es un palindromo"
     else:
-        if lista_numero[::1] != lista_numero[::-1]:
-            return "No es palindromo"
-        else:
-            return "Es palindromo"
+        return "No es un palindromo"
+        
+            
+
+import sys
 
 def main():
-
-    #Entrada
-    lista_numero:list = []
-    numero:int = int(sys.argv[1])
-    resultado:str = palindromo(numero,lista_numero)
     if len(sys.argv) != 2:
-        print("número de argumentos no válido")
-    else:
-        
-        #Salida
-        print(resultado)
+        print("número de argumentos no válido", file=sys.stderr)
+        return
+
+    numero = sys.argv[1]
+    resultado = palindromo(numero)
+    print(resultado, file=sys.stderr)
 
 if __name__ == "__main__":
     """Ejecuta programa"""
