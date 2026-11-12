@@ -6,13 +6,19 @@ alfabeto_cifrado:list = []
 def cifrado(rotacion:int, frase:str) -> str:
 
     #Calculo
-    posicion:int = 0
-    desplazamiento:int = (posicion + rotacion) % len(alfabeto)
-    for i in alfabeto:
-        aux:str = i
-        aux2:str = alfabeto[desplazamiento]
-        aux = aux2
-        print(aux)
+    for i in range(len(alfabeto)):
+        posicion:int = i
+        cambio1:str = alfabeto[posicion]
+        desplazamiento:int = (posicion + rotacion) % len(alfabeto)
+        cambio2:str = alfabeto[desplazamiento]
+        aux:str = cambio1
+        cambio1 = cambio2
+        cambio2 = aux
+        cambio_total = ", ".join(cambio1,cambio2)
+        alfabeto_cifrado.extend(cambio_total)
+        
+
+        
 
 def main():
      
