@@ -42,19 +42,24 @@ def main():
     frase:str = str(sys.argv[1].upper())    
 
     #Validacion
-    for caracter in frase:
-        if caracter not in alfabeto and caracter != " ":
-            raise ValueError("Formato incorrecto")
+    try:
+        for caracter in frase:
+            if caracter not in alfabeto and caracter != " ":
+                raise ValueError("Formato incorrecto")
         
-    #Quitar espacios
-    cadena:str = ""
-    for caracter in frase:
-        if caracter != " ":
-            cadena += caracter
+        #Quitar espacios
+        cadena:str = ""
+        for caracter in frase:
+            if caracter != " ":
+                cadena += caracter
 
-    #Salida
-    resultado = cifrado(cadena)
-    print(resultado)
+    except ValueError as e:
+        print(e,file=sys.stderr) 
+    
+    else:
+        #Salida
+        resultado = cifrado(cadena)
+        print(resultado)
     
 
 if __name__ == "__main__":
