@@ -46,8 +46,8 @@ def main():
         for caracter in frase:
             if caracter not in alfabeto and caracter != " ":
                 raise ValueError("Formato incorrecto")
-            elif frase == "":
-                raise ValueError("Formato incorrecto")
+        if frase == "":
+            raise ValueError("Formato incorrecto")
 
         
         #Quitar espacios
