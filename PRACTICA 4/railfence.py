@@ -1,4 +1,5 @@
 """Este programa consiste en replicar el método de cifrado de rail. Consiste en poner la frase en cigzag en 3 listas (en este caso) y sumar posteriormente el resultado para formar la frase"""
+# Marcos Martin Reinon
 import sys
 
 def cifrado(frase:str) -> list[list,list,list]:
