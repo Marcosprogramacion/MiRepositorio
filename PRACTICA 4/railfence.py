@@ -33,7 +33,7 @@ def cifrado(frase:str) -> list[list,list,list]:
 def main():
 
     if len(sys.argv) != 2:
-        print("número de argumentos no válido", file=sys.stderr)
+        print("número de argumentos no válido, tienes que poner railfence.py como argumento 1 y una cadena con caracteres que sean letras como argumento 2", file=sys.stderr)
         return
 
     alfabeto:list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -46,6 +46,9 @@ def main():
         for caracter in frase:
             if caracter not in alfabeto and caracter != " ":
                 raise ValueError("Formato incorrecto")
+            elif frase == "":
+                raise ValueError("Formato incorrecto")
+
         
         #Quitar espacios
         cadena:str = ""
